@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.movie.mapper.ReviewMapper">
+
+	<!-- 관람평 db 저장 -->
+	<insert id="write">
+		insert into review (userID, userNickname,
+		movieCd,movieNm, rate, content,imgUrl)
+		values(#{userID},#{userNickname},#{movieCd},#{movieNm},#{rate},#{content},#{imgUrl})
+	</insert>
+
+
+	<!-- 상세페이지 관람평 출력 -->
+	<select id="getMovieReviews"
+		resultType="com.movie.domain.Review">
+		select userNickname, movieCD, movieNm, rate, content,imgUrl
+		from review where movieCd = #{movieCd}
+	</select>
+	
+	<!-- 비회원 상세페이지 movie db 출력 -->
+	<select id="getMovieDetail" resultType="com.movie.domain.Movie">
+		SELECT * from movie where movieCd = #{movieCd};
+	</select>
+
+	<!-- 회원 상세페이지 movie db 출력 -->
+	<select id="getUserMovieDetail" resultType="com.movie.domain.Movie">
+		SELECT m.movieCd,
+		m.movieNm, m.titleEng, m.openDt, m.genre, m.posterUrl, m.prodYear,
+		m.directorNm, m.actorNm, m.company, m.rating, m.vodUrl, m.vodClass,
+		f.state
+		FROM movie m
+		LEFT JOIN favorite f ON m.movieCd = f.movieCd
+		WHERE m.movieCd = #{movieCd} and m.userID = #{userID};
+	</select>
+
+	<!-- 상세페이지 평균 평점 출력 -->
+	<select id="getAvgRate" resultType="double">
+		select
+		COALESCE(round(AVG(rate),2), 0.0) from review where movieCd =
+		#{movieCd}
+	</select>
+
+	<!-- 즐겨찾기 추가 -->
+	<insert id="insertFavorite">
+	
+		insert into favorite (movieCd, userID, movieNm,
+		rate,imgUrl) values(#{movieCd},#{userID},#{movieNm},#{rate},#{imgUrl}) 
+		<!-- ON DUPLICATE KEY movieCd=VALUES(movieCd), userID=VALUES(userID) -->
+	</insert>
+
+	<!-- 즐겨찾기 업뎃 -->
+	<update id="getFavoriteUpdate">
+		UPDATE favorite SET state = CASE 
+        WHEN state = 0 THEN 1
+        ELSE 0
+    END
+    WHERE userID = #{userID} AND movieCd = #{movieCd}
+	</update>
+	
+	<!-- 즐겨찾기 가져오기 -->
+	<select id="getFavorite" resultType="com.movie.domain.Favorite">
+		select * from favorite where movieCd = #{movieCd} and userID=#{userID}
+	</select>
+	
+	<!--  마이페이지 리뷰 삭제 -->
+	<delete id="deleteFavorite">
+		delete from favorite where movieCd = #{movieCd} and userID=#{userID}
+	</delete>
+
+
+
+
+
+
+</mapper>
+

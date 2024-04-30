@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.movie.mapper.MemberMapper">
+
+	<!-- 즐겨찾기 가져오기 -->
+	<select id="getFavoriteMovie" resultType="com.movie.domain.Favorite">
+		select * from favorite where userID=#{userID}
+	</select>
+	
+	<!-- 멤버의 리뷰 가져오기 -->
+    <select id="getMemberReview" resultType="com.movie.domain.Review">
+        SELECT r.*, m.openDt
+        FROM review r
+        INNER JOIN MOVIE m ON r.movieCd = m.movieCd
+        WHERE r.userNickname =#{userNickname}
+    </select>
+	
+	<!-- 멤버 정보 가져오기 -->
+	<select id="getMember" resultType="com.movie.domain.User">
+		select userID, userNickname, regDate from user where userNickname=#{userNickname}
+	</select>
+
+</mapper>
