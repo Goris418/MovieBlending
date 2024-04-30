@@ -1,0 +1,371 @@
+/*Global 변수*/
+:root {
+	/*App Colors*/
+	--color-primary: var(--color-blue);
+	--color-primary-variant: var(--color-gray);
+	--color-accent: var(--color-sky);
+	--color-accent-variant: var(--color-orange);
+	--color-text: var(--color-white);
+	/* Colors */
+	--color-white: #ffffff;
+	--color-blue: #1b325c;
+	--color-sky: #697ef1;
+	--color-orange: #fd6413;
+	--color-gray: #1b1e26;
+	/*Size*/
+	--size-max-width: 1200px;
+}
+
+* {
+	box-sizing: border-box;
+	/* 박스 크기를 계산할 때 테두리를 기준으로 크기를 결정 
+  요소가 애플리케이션 화면을 벗어나지 않도록 예방*/
+}
+
+body {
+	font-family: "Open Sans", sans-serif;
+	margin: 0;
+	background: #ebeef2;
+}
+
+h1, h2, h3, p, ul {
+	margin: 0;
+}
+
+ul {
+	list-style: none;
+	padding: 0;
+}
+
+.a {
+	font-weight: bold;
+	font-size: 2rem;
+}
+
+.pageNum {
+	/* text-decoration: none; */
+	color: var(--color-primary); 
+	font-size: 1rem;
+}
+
+.paging {
+	display: flex;
+	justify-content: center;
+}
+
+/*Common (공통으로 사용하는 것)*/
+.section {
+	padding: 4rem;
+	text-align: center;
+}
+
+.title {
+	font-size: 2.5rem;
+	margin: 1rem 0;
+}
+
+.description {
+	font-size: 1.5rem;
+	margin: 0.5rem 0;
+}
+
+.max-container {
+	max-width: var(--size-max-width);
+	/*창 늘어날 때 박스 간격 벌어지는 것 방지*/
+	margin: auto;
+	/*block 레벨 수평정렬 - auto는 자동으로 중간 정렬*/
+}
+
+/*================================================================*/
+/* main 게시판 섹션 */
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+section.notice {
+	padding: 20px 0;
+	width: 50%;
+	margin-inline: auto;
+	min-height: 800px; /*  이거 수정필요 */
+
+}
+
+.page-title {
+	margin-bottom: 20px;
+}
+
+.page-title h1 {
+	font-size: 2rem;
+	color: #333333;
+	font-weight: bold;
+	/* text-align: center; */
+}
+
+#board-search .search-window {
+	padding: 15px 0;
+	background-color: #f9f7f9;
+}
+
+#board-search .write__page {
+	padding: 15px 0;
+	background-color: #f9f7f93b;
+}
+
+#board-search .search-window .search-wrap {
+	position: relative;
+	/*   padding-right: 124px; */
+	margin: 0 auto;
+	width: 80%;
+	max-width: 564px;
+}
+
+#board-search .search-window .search-wrap input {
+	height: 40px;
+	width: 80%;
+	font-size: 14px;
+	padding: 7px 14px;
+	border: 1px solid #ccc;
+}
+
+#board-search .search-window .search-wrap input:focus {
+	border-color: #333;
+	outline: 0;
+	border-width: 1px;
+}
+
+#board-search .search-window .search-wrap .btn {
+	position: absolute;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	width: 108px;
+	padding: 0;
+	font-size: 16px;
+}
+
+.write {
+	display: flex;
+	justify-content: end;
+}
+
+.write__category {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 10px;
+	background-color: #7637bd;
+	color: var(--color-text);
+	width: 120px;
+	height: 40px;
+	margin: 0 20px;
+}
+
+.write__button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 10px;
+	background-color: #697ef1;
+	color: var(--color-text);
+	width: 120px;
+	height: 40px;
+	margin: 0 20px;
+}
+
+/* 다음 */
+.board__button1 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 10px;
+	background-color: #12862f;
+	color: var(--color-text);
+	width: 120px;
+	height: 40px;
+	margin: 0 20px;
+}
+
+/* 이전 */
+.board__button2 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 10px;
+	background-color: #12862f;
+	color: var(--color-text);
+	width: 120px;
+	height: 40px;
+	margin: 0 20px;
+}
+
+.board-list {
+	background-color: #f9f7f9;
+}
+
+.board-table {
+	font-size: 13px;
+	width: 100%;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	margin: 20px 0;
+}
+
+.board-table a {
+	color: #333;
+	display: inline-block;
+	line-height: 1.4;
+	word-break: break-all;
+	vertical-align: middle;
+}
+
+.board-table a:hover {
+	text-decoration: underline;
+}
+
+.board-table th {
+	text-align: center;
+}
+
+.board-table .th-num {
+	width: 60px;
+}
+
+.board-table .th-cate {
+	width: 60px;
+}
+
+.board-table .th-title {
+	width: 100px;
+}
+
+.board-table .th-user {
+	width: 80px;
+}
+
+.board-table .th-date {
+	width: 100px;
+}
+
+.board-table .th-view {
+	width: 60px;
+}
+
+.board-table .th-like {
+	width: 60px;
+}
+
+.board-table th, .board-table td {
+	padding: 14px 0;
+}
+
+.board-table tbody td {
+	border-top: 1px solid #e7e7e7;
+	text-align: center;
+}
+
+.board-table tbody th {
+	padding-left: 28px;
+	padding-right: 14px;
+	border-top: 1px solid #e7e7e7;
+	text-align: left;
+}
+
+.board-table tbody th p {
+	display: none;
+}
+
+.replyDelete {
+	float: right;
+}
+
+/* reset */
+* {
+	list-style: none;
+	text-decoration: none;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+.clearfix:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.container {
+	width: 900px;
+	margin: 0 auto;
+	background-color: #f9f7f9;
+}
+
+.blind {
+	position: absolute;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	margin: -1px;
+	width: 1px;
+	height: 1px;
+}
+
+/*댓글*/
+.userProfile { /* 유저 프로필 */
+	width: 24%;
+	float: left;
+	height: 100%;
+	border-right: 3px solid black;
+	margin-right: 30px;
+}
+
+.userProfile a {
+	width: 75px;
+	float: left;
+	color: #1b1e26;
+}
+
+.userProfile div a {
+	width: 220px;
+	float: right;
+	color: #1b1e26;
+	padding: 0 0 10px 10px;
+}
+
+.userProfile div {
+	width: 220px;
+	padding: 0 0 10px 10px;
+	font-size: 25px;
+	float: left;
+}
+
+.fa-regular {
+	font-size: 30px;
+	float: left;
+}
+
+.user_profile {
+	font-size: 1rem;
+}
+
+/*Footer*/
+#contact {
+	background-color: var(--color-primary);
+	color: var(--color-text);
+}
+
+.contact__links {
+	display: flex;
+	justify-content: center;
+	gap: 1rem;
+	padding: 1rem;
+	font-size: 2rem;
+}
+
+.contact__link {
+	transition: color 250ms ease-in;
+	/*추가요소(중요x)*/
+}
+
+.contact__link:hover {
+	color: var(--color-accent);
+}

@@ -1,0 +1,23 @@
+/*Footer*/
+#contact {
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  position: relative;
+}
+
+.contact__links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  font-size: 2rem;
+}
+
+.contact__link {
+  transition: color 250ms ease-in;
+  /*추가요소(중요x)*/
+}
+
+.contact__link:hover {
+  color: var(--color-accent);
+}

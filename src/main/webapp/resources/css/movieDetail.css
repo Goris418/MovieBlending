@@ -1,0 +1,316 @@
+/* 초기화 */
+/*Global 변수*/
+:root {
+	/*App Colors*/ 
+	--color-primary: var(--color-blue); 
+	--color-primary-variant: var(--color-gray); 
+	--color-accent: var(--color-sky); 
+	--color-accent-variant: var(--color-orange); 
+	--color-text: var(--color-white);
+	/* Colors */ 
+	--color-white: #ffffff; 
+	--color-blue: #1b325c; 
+	--color-sky: #697ef1; 
+	--color-orange: #fd6413; 
+	--color-gray: #1b1e26;
+	/*Size*/ 
+	--size-max-width: 1200px;
+}
+
+* {
+	box-sizing: border-box;
+	/* 박스 크기를 계산할 때 테두리를 기준으로 크기를 결정 
+    요소가 애플리케이션 화면을 벗어나지 않도록 예방*/
+}
+
+body {
+	font-family: "Open Sans", sans-serif;
+	margin: 0;
+	background: #ebeef2;
+}
+
+h1, h2, h3, p, ul {
+	margin: 0;
+}
+
+ul {
+	list-style: none;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+	color: var(--color-text);
+}
+
+/*Common (공통으로 사용하는 것)*/
+.section {
+	padding: 4rem;
+	text-align: center;
+}
+
+.title {
+	font-size: 2.5rem;
+	margin: 1rem 0;
+}
+
+.description {
+	font-size: 1.5rem;
+	margin: 0.5rem 0;
+}
+
+.max-container {
+	max-width: var(--size-max-width);
+	/*창 늘어날 때 박스 간격 벌어지는 것 방지*/
+	margin: auto;
+	/*block 레벨 수평정렬 - auto는 자동으로 중간 정렬*/
+}
+
+.fa-solid:hover {
+	color: var(--color-accent-variant);
+	cursor: pointer
+}  
+ 
+.fa-solid.clicked {
+	color: var(--color-accent-variant);
+}
+
+/* .fa-star {
+	color: var(--color-accent-variant);
+} */
+
+.star {
+	margin-left: auto;
+}
+
+.orange {
+	color: var(--color-accent-variant);
+}
+
+.btn-favorite {
+	border: none; /* Remove border */
+    background: none; /* Remove background color */
+    padding: 0; /* Remove padding */
+}
+
+
+/* 메인 */
+.main {
+	position: relative;
+	width: 70%;
+	margin: 80px auto;
+}
+
+.mProfile { /* 영화상세페이지 */
+	margin-bottom: 100px;
+}
+
+.mProfile-detail { /* 영화상세페이지 api활용(영화진흥위원회) */
+	padding-right: 600px;
+}
+
+.head-section {
+	margin-bottom: 0 0 15px 0;
+	border-bottom: 2px solid #999;
+}
+
+.head-section a {
+	color: #1b1e26;
+}
+
+.head-section1 {
+	font-size: 50px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.head-section2 {
+	font-size: 25px;
+	line-height: 120%;
+	color: #999;
+	margin-top: 12px;
+	margin-bottom: 20px;
+	display: flex;
+}
+
+.main-section {
+	font-size: 25px;
+	margin-top: 20px;
+}
+
+.main-section dl dt {
+	width: 75px;
+	float: left;
+	color: #999;
+}
+
+.main-section dl dd {
+	padding: 0 0 10px 100px;
+}
+
+.main-section dl dd a {
+	color: #1b1e26;
+}
+
+.mPoster { /* 영화 포스터 api활용(km db) */
+	display: block;
+	height: 100%;
+	background-size: cover;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+.mPoster img {
+	width: 357px;
+	height: 510px;
+}
+
+.mTrailer { /* 영화 트레일러 api활용(km db) */
+	padding-bottom: 50px;
+	overflow-x: auto;
+	white-space: nowrap;
+}
+
+.mTrailer h2 {
+	margin-bottom: 50px;
+	padding-bottom: 20px;
+	font-size: 35px;
+	border-bottom: 1px solid #777;
+}
+
+.trailer { /* 트레일러 영상*/
+	display: flex;
+	overflow-x: auto;
+	overflow-y: auto;
+	height: 650px;
+}
+
+.video-container {
+	width: 890px;
+	height: 580px;
+	flex: 0 0 auto;
+}
+
+.video-container:last-child {
+	margin-right: 0;
+}
+
+.video-container iframe {
+	width: 100%;
+	height: 100%;
+}
+
+.video-container p {
+	font-size: 25px;
+	margin-left: 30px;
+}
+
+.mReview { /* 관람평*/
+	position: relative;
+	padding-bottom: 100px;
+}
+
+.head-review {
+	position: relative;
+}
+
+.head-review h2 {
+	margin-bottom: 50px;
+	padding-bottom: 20px;
+	font-size: 35px;
+	border-bottom: 1px solid #777;
+}
+
+.writeReview { /* 관람평 쓰기*/
+	position: absolute;
+	display: flex;
+	height: 100%;
+	align-items: center;
+	right: 0;
+	top: 0;
+}
+
+.writeReview a {
+	color: #1b1e26;
+}
+
+.mainReview { /* 관람평 내용*/
+	position: relative;
+	height: 100%;
+}
+
+.reviewform {
+	width: 100%;
+	height: 120px;
+	position: relative;
+	margin-top: 30px;
+	display: inline-table;
+}
+
+.userProfile { /* 유저 프로필 */
+	width: 24%;
+	float: left;
+	height: 100%;
+	border-right: 3px solid black;
+	margin-right: 30px;
+}
+
+.userProfile a {
+	width: 75px;
+	float: left;
+	color: #1b1e26;
+}
+
+.userProfile div a {
+	width: 220px;
+	float: right;
+	color: #1b1e26;
+	padding: 0 0 10px 10px;
+}
+
+.userProfile div {
+	width: 220px;
+	padding: 0 0 10px 10px;
+	font-size: 25px;
+	float: left;
+}
+
+.fa-regular {
+	font-size: 60px;
+	float: left;
+}
+
+.userReview { /* 유저 작성 관람평 */
+	font-size: 1.5rem;
+	float: left;
+	width: 70%;
+}
+
+.user_profile {
+	font-size: 5rem;
+}
+
+.rbox {
+	float: right;
+}
+
+#textarea {
+	width: 100%;
+	font-size: 25px;
+}
+
+/*화살표*/
+.arrow-up {
+	background-color: var(--color-primary);
+	position: fixed;
+	bottom: 3rem;
+	right: 3rem;
+	font-size: 3rem;
+	width: 4.5rem;
+	height: 4.5rem;
+	border-radius: 100%;
+	text-align: center;
+	box-shadow: 5px 5px 0px 0px var(--color-accent);
+	transition: opacity 300ms ease-in;
+}

@@ -1,0 +1,192 @@
+/* main */
+.main {
+  position: relative;
+  width: 65%;
+  margin: 50px auto;
+  height: 100%;
+}
+
+.main-info {
+  position: relative;
+  background-color: #f8f8f8;
+  border-radius: 3cap;
+  padding: 15px;
+  margin-bottom: 30px;
+}
+
+.profile-header {
+  padding: 10px;
+  margin-left: 20px;
+  font-size: 30px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #777;
+}
+
+.profile-main-info img {
+  width: 135px;
+  height: 135px;
+  float: left;
+  border-radius: 100%;
+
+}
+
+.profile-main-info-box {
+  height: 135px;
+}
+
+.person-info {
+  font-size: 25px;
+  padding-left: 170px;
+  margin-top: 50px;
+}
+
+.person-info>span{
+  display : block;
+}
+
+.user-Review-header {
+  font-size: 25px;
+  margin-top: 50px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #777;
+}
+
+.movies {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.movie {
+  position: relative;
+  border: 1.5px solid var(--color-primary);
+/*   padding: 10px 20px; */
+  border-radius:  15px;
+  overflow: hidden;
+/*   background-color: white; */
+}
+
+.movie_name{
+  width: 80%;
+  font-size: 1rem;
+  font-weight: 500;
+  float: left;
+  margin-top: 5px;
+  margin-left: 10px;
+}
+
+.movie__img {
+  width: 100%;
+}
+
+
+.movie__metadata {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60%;
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  transition: all 250ms ease-in;
+  transform: translateY(100px);
+  /*영화 제목, 설명 글짜 크기*/
+}
+
+.movie__metadata > p {
+margin-bottom: 6rem;
+}
+
+.movie__title{
+	text-align: center;
+	width: 11rem;
+   text-overflow: ellipsis;
+   overflow: hidden;
+   white-space: nowrap;
+}
+
+.movie__metadata:hover {
+  opacity: 1;
+  transform: translateY(-10px);
+}
+
+.movie__title:after {
+  content: "";
+  display: block;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0.5rem 0;
+  width: 100px;
+  height: 2px;
+  background-color: #688cf9;
+}
+.review_box{
+  height: 90%;
+  width: 100%;
+  position: absolute;
+  top: 100%;
+  display: block;;
+  padding: 0 10px;
+  white-space: normal;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.review{
+  margin: 15px auto;
+  color: white;
+  overflow : hidden;
+  text-overflow : ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  font-size: 25px;
+}
+
+.movie__review:hover {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+
+/* 별 모양 : 즐겨찾기 기능*/
+.star-rating {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.fa-solid.fa-star {
+    font-weight: 900;
+    font-size: xx-large;
+}
+
+.star {
+  appearance: none;
+  /* border: 2px solid var(--color-orange); */
+  margin: 0 0 2px 0;
+  padding: 2px;
+}
+
+.star::after {
+  content: "☆";
+  color: hsl(61, 100%, 67%);
+  font-size: 2rem;
+}
+
+.star:hover::after,
+.star:has(~ .star:hover)::after,
+.star:checked::after,
+.star:has(~ .star:checked)::after {
+  content: "★";
+}
+
+.star:hover~.star::after {
+  content: "☆";
+}
